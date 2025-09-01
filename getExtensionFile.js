@@ -1,9 +1,9 @@
 // Write a Javascript program to get the extension of a filename 
 
 function getExtension (filename) {
-    let dotIndex = filename.indexOf(".");
-    console.log(filename.slice(dotIndex));
+    let lastDotIndex = filename.lastIndexOf(".");
+    console.log(filename.slice(lastDotIndex));
 }
 
-getExtension('checkNum.js')
+getExtension('checkNum.package.js')
 
