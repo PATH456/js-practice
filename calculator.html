@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <title>
+    Calculator
+  </title>
+
+  <head>
+
+    <style>
+      button {
+        margin-bottom: 1rem;
+        font-size: 20px;
+      } 
+      button.backspace {
+        opacity: 0.65;
+      }
+      h1 {
+        font-weight:200;
+        font-size: 30px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <h1>
+      Calculator
+    </h1>
+
+    <button onclick = "
+    calculator+= '1';
+    console.log(`${calculator}`);"
+    >1</button>
+
+    <button onclick = "
+    calculator+= '2';
+    console.log(`${calculator}`);"
+    >2</button>
+
+    <button onclick = "
+    calculator+= '3';
+    console.log(`${calculator}`);
+    ">3</button>
+
+    <button onclick = "
+    calculator+= ' + ';
+    console.log(`${calculator}`);"
+    >+</button>
+
+    <br>
+    <button>4</button>
+
+    <button>5</button>
+
+    <button>6</button>
+
+    <button>-</button>
+
+    <br>
+    <button>7</button>
+
+    <button>8</button>
+
+    <button>9</button>
+
+    <button>*</button>
+
+    <br>
+    <button>0</button>
+
+    <button>.</button>
+
+    <button onclick = "
+    calculator = eval(calculator);
+    console.log(typeof calculator)
+    console.log(`${calculator}`);"
+
+    >=</button>
+
+    <button>/</button>
+
+    <br>
+
+    <button>Clear</button>
+
+    <button class = "backspace">x</button>
+
+    <script>
+      let calculator = '';
+
+    </script>
+
+  </body>
+</html>
