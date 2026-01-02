@@ -16,28 +16,23 @@
   <button onclick = "console.log(`Cart quantity: ${cartQuantity}`)">Show Quantity</button>
 
   <button onclick = "
-  cartQuantity++; 
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  checkMaxQuantity(1); "
   >Add to cart</button>
 
   <button onclick = "
-  cartQuantity+=2;
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  checkMaxQuantity(2);"
   >+2</button>
 
   <button onclick = "
-  cartQuantity+=3; 
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  checkMaxQuantity(3); "
   >+3</button> 
 
   <button onclick = "
-  cartQuantity+=4;
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  checkMaxQuantity(4);"
   >+4</button>
 
   <button onclick = "
-  cartQuantity+=5;
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  checkMaxQuantity(5);"
   >+5</button>
 
   <button onclick = "
@@ -46,23 +41,36 @@
   >Reset Cart</button>
 
   <button onclick = 
-  "cartQuantity--;
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  "checkMinQuantity(1);"
   >Remove from cart</button>
 
   <button onclick = "
-  cartQuantity-=2;
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  checkMinQuantity(2);"
   >-2</button>
 
   <button onclick = "
-  cartQuantity-=3;
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  checkMinQuantity(3);"
   >-3</button>
 
 <script>
   let cartQuantity = 0;
+  function checkMaxQuantity(increasedAmount) {
+    if ((cartQuantity + increasedAmount) > 10) {
+      alert('The cart is full');
+    } else {
+      cartQuantity += increasedAmount;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    }
+  }
 
+  function checkMinQuantity(decreasedAmount) {
+    if ((cartQuantity - decreasedAmount) < 0) {
+      alert('The cart is empty');
+    } else {
+      cartQuantity -= decreasedAmount;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    }
+  }
 </script>
   
 </body>
