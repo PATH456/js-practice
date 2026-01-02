@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+  <title>Booleans</title>
+
+</head>
+
+<body>
+  <h1>
+    Rock Paper Scissors
+  </h1>
+
+  <button onclick = "
+  player+= 'rock';
+  computer = pickRandomVariable(computer);
+  findTheWinner(player, computer);
+  player = '';
+  computer = ['rock', 'paper', 'scissors'];
+  check = '';"
+  >Rock</button>
+
+  <button onclick ="
+  player+= 'paper';
+  computer = pickRandomVariable(computer);
+  findTheWinner(player, computer);
+  player = '';
+  computer = ['rock', 'paper', 'scissors'];
+  check = '';">Paper</button>
+
+  <button onclick = "
+  player+= 'scissors';
+  computer = pickRandomVariable(computer);
+  findTheWinner(player, computer);
+  player = '';
+  computer = ['rock', 'paper', 'scissors'];
+  check = '';"
+  >Scissors</button> 
+  
+<script>
+  let player = '';
+  let computer = ['rock', 'paper', 'scissors'];
+  let check = '';
+  let win = 0;
+  let lose = 0;
+  let tie = 0;
+
+  function pickRandomVariable(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+  }
+
+  function findTheWinner(player, computer) {
+    if (player === 'rock') {
+      if (computer === 'rock') {
+        tie++;
+        check += 'Tie';
+      } else if (computer === 'paper') {
+        lose++;
+        check += 'You lose';
+      } else {
+        win++;
+        check += 'You win';
+      }
+    } else if (player === 'paper') {
+      if (computer === 'rock') {
+        check+= 'You win';
+        win++;
+      } else if (computer === 'paper') {
+        check += 'Tie';
+        tie++;
+      } else {
+        check += 'You lose';
+        lose++;
+      }
+    } else {
+      if (computer === 'rock') {
+        check += 'You lose';
+        lose++;
+      } else if (computer === 'paper') {
+        check += 'You win';
+        win++;
+      } else {
+        check += 'Tie';
+        tie++;
+      }
+    }
+    alert(`You picked ${player}. Computer picked ${computer}. ${check}`);
+    console.log(`Win: ${win},  Lose: ${lose},  Tie: ${tie}`)
+
+  }
+
+  
+</script>
+  
+</body>
+</html>
