@@ -28,67 +28,85 @@
       Calculator
     </h1>
 
-    <button onclick = "
-    calculator+= '1';
-    console.log(`${calculator}`);"
+    <button onclick = "updateCalculator(1);"
     >1</button>
 
-    <button onclick = "
-    calculator+= '2';
-    console.log(`${calculator}`);"
+    <button onclick = "updateCalculator(2);"
     >2</button>
 
-    <button onclick = "
-    calculator+= '3';
-    console.log(`${calculator}`);
+    <button onclick = "updateCalculator(3);
     ">3</button>
 
-    <button onclick = "
-    calculator+= ' + ';
-    console.log(`${calculator}`);"
+    <button onclick = "updateCalculator(' + ');"
     >+</button>
 
     <br>
-    <button>4</button>
+    <button onclick = "updateCalculator(4)"
+    >4</button>
 
-    <button>5</button>
+    <button onclick = "updateCalculator(5)"
+    >5</button>
 
-    <button>6</button>
+    <button onclick = "updateCalculator(6)"
+    >6</button>
 
-    <button>-</button>
-
-    <br>
-    <button>7</button>
-
-    <button>8</button>
-
-    <button>9</button>
-
-    <button>*</button>
+    <button onclick = "updateCalculator(' - ')"
+    >-</button>
 
     <br>
-    <button>0</button>
+    <button onclick = "updateCalculator(7)"
+    >7</button>
 
-    <button>.</button>
+    <button onclick = "updateCalculator(8)"
+    >8</button>
+
+    <button onclick = "updateCalculator(9)"
+    >9</button>
+
+    <button onclick = "updateCalculator(' * ')"
+    >*</button>
+
+    <br>
+    <button onclick = "updateCalculator(0)"
+    >0</button>
+
+    <button onclick = "updateCalculator('.')"
+    >.</button>
 
     <button onclick = "
     calculator = eval(calculator);
-    console.log(typeof calculator)
     console.log(`${calculator}`);"
 
     >=</button>
 
-    <button>/</button>
+    <button onclick = "updateCalculator(' / ')"
+    >/</button>
 
     <br>
 
-    <button>Clear</button>
+    <button onclick = "calculator = '';
+    console.log(`${calculator}`);"
+    >Clear</button>
 
-    <button class = "backspace">x</button>
+    <button class = "backspace"; onclick = "
+    backSpace();
+    console.log(calculator)";
+    >x</button>
 
     <script>
       let calculator = '';
+      function updateCalculator(parameter1) {
+        calculator += parameter1;
+        console.log(`${calculator}`);
+      }
 
+      function backSpace() {
+        if (calculator.endsWith(' ')) {
+          calculator = calculator.slice(0, calculator.length-3);
+        } else {
+          calculator = calculator.slice(0, calculator.length-1);
+        }
+      }
     </script>
 
   </body>
