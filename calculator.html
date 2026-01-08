@@ -75,6 +75,7 @@
 
     <button onclick = "
     calculator = eval(calculator);
+    localStorage.setItem('result', JSON.stringify(calculator));
     console.log(`${calculator}`);"
 
     >=</button>
@@ -85,7 +86,7 @@
     <br>
 
     <button onclick = "calculator = '';
-    console.log(`${calculator}`);"
+    localStorage.removeItem('result');"
     >Clear</button>
 
     <button class = "backspace"; onclick = "
@@ -94,7 +95,7 @@
     >x</button>
 
     <script>
-      let calculator = '';
+      let calculator = localStorage.getItem('result') || '';
       function updateCalculator(parameter1) {
         calculator += parameter1;
         console.log(`${calculator}`);
@@ -107,6 +108,8 @@
           calculator = calculator.slice(0, calculator.length-1);
         }
       }
+
+    /* What if I get a random result like number 20, then I press on a random number instead of continuing my calculation? */
     </script>
 
   </body>
