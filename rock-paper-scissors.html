@@ -28,6 +28,7 @@
 
   <button onclick = "
   player+= 'scissors';
+  
   computer = pickRandomVariable(computer);
   findTheWinner(player, computer);
   player = '';
@@ -35,11 +36,14 @@
   check = '';"
   >Scissors</button> 
 
+  <div id = "announcement">
+    <p id = "win-lose"></p>
+    <p id = "pick"></p>
+    <p id = "score"></p>
+  </div>
+
   <button onclick = "
-  localStorage.removeItem('score');
-  score.win = 0,
-  score.lose = 0,
-  score.tie = 0";
+   resetScore()";
   >Reset Score</button>
   
 <script>
@@ -92,16 +96,24 @@
         score.tie++;
       }
     }
-
     const scoreJSON = JSON.stringify(score);
     localStorage.setItem('score', scoreJSON);
 
-    alert(`You picked ${player}. Computer picked ${computer}. ${check}\n\nWin: ${score.win},  Lose: ${score.lose},  Tie: ${score.tie}`);
+    document.querySelector('#win-lose').innerText = `${check}`;
+    document.querySelector('#pick').innerText = `You ${player} - ${computer} Computer`;
+    document.querySelector('#score').innerText = `Wins: ${score.win}, Loses: ${score.lose}, Tie: ${score.tie}`;
 
 
+    // alert(`You picked ${player}. Computer picked ${computer}. ${check}\n\nWin: ${score.win},  Lose: ${score.lose},  Tie: ${score.tie}`);
   }
+  function resetScore() {
+    localStorage.removeItem('score');
+    score.win = 0,
+    score.lose = 0,
+    score.tie = 0
+    document.querySelector('#score').innerText = `Wins: ${score.win}, Loses: ${score.lose}, Tie: ${score.tie}`;
+  };
 
-  
 </script>
   
 </body>
