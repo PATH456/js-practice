@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <button onclick = "console.log(`Cart quantity: ${cartQuantity}`)">Show Quantity</button>
+  <button onclick = "document.querySelector('.quantity').innerHTML = `The cart quantity is ${cartQuantity}`">Show Quantity</button>
 
   <button onclick = "
   checkMaxQuantity(1); "
@@ -37,7 +37,7 @@
 
   <button onclick = "
   cartQuantity = 0;
-  console.log(`Cart quantity: ${cartQuantity}`);"
+  document.querySelector('.quantity').innerHTML = `The cart quantity is ${cartQuantity}`"
   >Reset Cart</button>
 
   <button onclick = 
@@ -52,6 +52,8 @@
   checkMinQuantity(3);"
   >-3</button>
 
+  <p class = "quantity"></p>
+
 <script>
   let cartQuantity = 0;
   function checkMaxQuantity(increasedAmount) {
@@ -59,7 +61,7 @@
       alert('The cart is full');
     } else {
       cartQuantity += increasedAmount;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      document.querySelector(".quantity").innerHTML = `The cart quantity is ${cartQuantity}`
     }
   }
 
@@ -68,7 +70,7 @@
       alert('The cart is empty');
     } else {
       cartQuantity -= decreasedAmount;
-      console.log(`Cart quantity: ${cartQuantity}`);
+        document.querySelector(".quantity").innerHTML = `The cart quantity is ${cartQuantity}`
     }
   }
 </script>
