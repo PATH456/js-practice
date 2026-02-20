@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+
+<html>
+
+  <head>
+    <title>
+    DOM Revision
+  </title>
+
+  <style>
+    .sub-button {
+      background-color: black;
+      color:  white;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;  
+      padding: 5px;
+    }
+  </style>
+  </head>
+
+  
+
+  <body>
+    <button class = "sub-button" onclick = "youtubeSubscribe()" >Subscribe</button>  
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping</p>
+    <p>Orders over $40 = Free shipping</p>
+
+    <div class = "calculate-price">
+      <input type = "number" class = "price-input">
+      <button class = "cal-button" onclick = "displayPrice()">Calculate</button>
+    </div>
+
+    <p class = "price-display"></p>
+    
+    <script>
+      function youtubeSubscribe() {
+        let subButton = document.querySelector('.sub-button');
+        if (subButton.innerHTML === "Subscribe") {
+          subButton.innerHTML = "Subscribed";
+        } else {
+          subButton.innerHTML = "Subscribe";
+        }
+      }
+
+      function displayPrice() {
+        let inputElement = document.querySelector('.price-input');
+        let value = Number(inputElement.value);
+        if (value < 40) {
+          value += 10;
+          document.querySelector('.price-display').innerHTML = "$"+ value;
+        } else {
+          document.querySelector('.price-display').innerHTML = "$"+ value;
+        }
+
+      }
+      
+
+    </script>
+  </body>
+</html>

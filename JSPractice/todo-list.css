@@ -1,0 +1,20 @@
+
+.task-display {
+  padding: 20px 0px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  max-width: 405px;
+  padding: 20px 0px;
+  gap: 50px;
+}
+
+.delete-button{
+  width: 91px;
+}
+
+.text{
+  flex: 1;
+} 

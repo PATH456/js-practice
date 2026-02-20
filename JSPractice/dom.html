@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>DOM Projects</title>
+
+    <style>
+      .subscribe-button{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 4rem;
+        color: white;
+        background-color:black;
+        border-radius: 20px;
+        width: 6rem;
+        height: 2.4rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .calculate-button{
+        background-color: green;
+        color: white;
+        height: 2.5rem;
+        width: 6rem;
+      }
+
+      #user-input{
+        height: 2.2rem;
+        width: 12rem;
+      }
+      .active{
+        background-color: white;
+        color: black;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <p>YouTube Subscribe Button</p>
+
+    <button onclick = "subscribe()" 
+    class = "subscribe-button">Subscribe</button>
+
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Order under $40 = +$10 shipping</p>
+    <p>Order over $40 = FREE shipping</p>
+
+    <input type = "number" id = "user-input" onkeydown ="checkKeyDown()">
+
+    <button onclick = "calculateShipping()"
+    class = "calculate-button">Calculate</button>
+
+    <p id = "shipping-cost"></p>
+
+
+
+
+
+    <script>
+
+      // const subButton = document.querySelector('.subscribe-button');
+      // subButton.addEventListener("click", () => {
+      //   subButton.innerText =
+      //           subButton.innerText === 'Subscribe' 
+      //           ? 'Subscribed' 
+      //           : 'Subscribe';
+      // });
+      function checkKeyDown() {
+      if (event.key === 'Enter') {
+        calculateShipping();
+      }
+    }
+
+      function subscribe() {
+        const subButton = document.querySelector('.subscribe-button');
+        if (subButton.innerText === 'Subscribe') {
+          subButton.innerText = 'Subscribed';
+          subButton.classList.add("active");
+        } else {
+          subButton.innerText = 'Subscribe';
+          subButton.classList.remove("active");
+        }
+      }
+      function calculateShipping() {
+      
+        const userInput = document.getElementById("user-input").value;
+        userInput > 40 
+        ? document.getElementById("shipping-cost").innerText = `$${Number(userInput)}`
+        : document.getElementById("shipping-cost").innerText = `$${Number(userInput)+10}`
+      }
+
+ // if (userInput > 40) {
+      //   document.getElementById("shipping-cost")
+      //   .innerHTML = `${userInput+10}`;
+      // } else {
+      //   document.getElementById("shipping-cost")
+      //     .innerHTML = `${userInput}`;
+      // }
+
+
+    </script>
+
+  </body>
+</html>
