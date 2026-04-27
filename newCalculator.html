@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+
+  </head>
+  
+  <body>
+    <p class = "display"></p>
+
+    <button onclick = "updateCalculation(1)">1</button>
+    <button onclick = "updateCalculation(2)">2</button>
+    <button onclick = "updateCalculation(3)">3</button>
+    <button onclick = "updateCalculation(' + ')">+</button>
+    <button onclick = "evaluateCalculation()">=</button>
+
+    <script>
+      let calculator = document.querySelector(".display"); 
+      let calculation = "";
+      function updateCalculation(element) {
+        calculation += element;
+        calculator.innerHTML = calculation;
+      }
+
+      function evaluateCalculation() {
+        calculator.innerHTML = eval(calculation);
+      }
+
+
+
+    </script>
+  </body>
+</html>
