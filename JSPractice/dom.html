@@ -43,67 +43,46 @@
 
   <body>
 
-    <p>YouTube Subscribe Button</p>
-
-    <button onclick = "subscribe()" 
-    class = "subscribe-button">Subscribe</button>
-
+    <p>Youtube subscribe button</p>
+    <button class = "subButton" onclick = "subButtonClick()">Subscribe</button>
 
     <p>Amazon Shipping Calculator</p>
-    <p>Order under $40 = +$10 shipping</p>
-    <p>Order over $40 = FREE shipping</p>
-
-    <input type = "number" id = "user-input" onkeydown ="checkKeyDown()">
-
-    <button onclick = "calculateShipping()"
-    class = "calculate-button">Calculate</button>
-
-    <p id = "shipping-cost"></p>
-
+    <p>Orders under $40 = +$10 shipping</p>
+    <p>Orders over or equal to $40 = Free shipping</p>
+    <input placeholder = "Cost of orders" type = number class = "orderCostInput">
+    <button class = "calculateTotalCost" onclick = "calculateTotalCost()">Calculate</button>
+    <p class = "totalCostAnnouncement"></p>
+  
 
 
 
 
     <script>
-
-      // const subButton = document.querySelector('.subscribe-button');
-      // subButton.addEventListener("click", () => {
-      //   subButton.innerText =
-      //           subButton.innerText === 'Subscribe' 
-      //           ? 'Subscribed' 
-      //           : 'Subscribe';
-      // });
-      function checkKeyDown() {
-      if (event.key === 'Enter') {
-        calculateShipping();
+      const subButton = document.body.querySelector('.subButton');
+      function subButtonClick() {
+        (subButton.innerHTML === "Subscribe") ? 
+        subButton.innerHTML = "Subscribed" : subButton.innerHTML = "Subscribe";
       }
-    }
 
-      function subscribe() {
-        const subButton = document.querySelector('.subscribe-button');
-        if (subButton.innerText === 'Subscribe') {
-          subButton.innerText = 'Subscribed';
-          subButton.classList.add("active");
-        } else {
-          subButton.innerText = 'Subscribe';
-          subButton.classList.remove("active");
-        }
-      }
-      function calculateShipping() {
+      const totalCostAnnouncement = document.body.querySelector('.totalCostAnnouncement');
+      const orderCostInput = document.body.querySelector('.orderCostInput');
+
       
-        const userInput = document.getElementById("user-input").value;
-        userInput > 40 
-        ? document.getElementById("shipping-cost").innerText = `$${Number(userInput)}`
-        : document.getElementById("shipping-cost").innerText = `$${Number(userInput)+10}`
+      function calculateTotalCost() {
+        totalCost = (Number(orderCostInput.value) <= 40) ? 
+        Number(orderCostInput.value) : Number(orderCostInput.value) + 10;
+        totalCostAnnouncement.innerHTML = `Total: $${totalCost}`;
       }
 
- // if (userInput > 40) {
-      //   document.getElementById("shipping-cost")
-      //   .innerHTML = `${userInput+10}`;
-      // } else {
-      //   document.getElementById("shipping-cost")
-      //     .innerHTML = `${userInput}`;
-      // }
+      
+      
+      orderCostInput.addEventListener('keydown', (event) => {
+        if (event.key === "Enter") {
+          calculateTotalCost();
+        }
+      })
+      
+
 
 
     </script>

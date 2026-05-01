@@ -9,6 +9,34 @@
 <body>
 
   <script>
+    const product1 = {
+      name: "basketball",
+      price: 20.95
+    }
+    
+    const product2 = product1;
+
+    function comparePrice(product1, product2) {
+      if (product1.price === product2.price) {
+        console.log("Same price!");
+      } else if (product1.price < product2.price) {
+        return product1;
+      } else {
+        return product2;
+      }
+    }
+
+    function isSameProduct(product1, product2) {
+      if (product1.name === product2.name && product1.price === product2.price) {
+        return true
+      } else {
+        return false;
+      }
+    }
+
+    const example = "aBc";
+    console.log(example.toLowerCase());
+    console.log(example.repeat(4));
 
   </script>
 </body>

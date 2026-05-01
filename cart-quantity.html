@@ -38,11 +38,7 @@
     }
 
     function checkMaxQuantity(increasedNum) {
-      if (cartQuantity + increasedNum > 10) {
-        alert("The shopping cart is full");
-      } else {
-        cartQuantity += increasedNum;
-      }
+      (cartQuantity + increasedNum > 10) ? alert("The shopping cart is full") : cartQuantity += increasedNum;
     }
 
     function checkMinQuantity(decreasedNum) {

@@ -9,15 +9,15 @@
   <body>
 
     <script>
-      let randomNum = Math.random();
-      let result = '';
-      let guess = 'heads';
-         
-      result = (randomNum < 0.5) ? 'heads' : 'tails';
+      const randomNum = Math.random();
+      guess = "heads";
+      result = (randomNum < 0.5) ? "heads" : "tails";
 
-      result === guess ? console.log('You win!') : console.log('You lose!');
-        
+      (guess === result) ? console.log("You win!") : console.log("You lose!");
 
+      
+
+  
     </script>
 
   </body>

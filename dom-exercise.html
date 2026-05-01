@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+  DOM-Exercise
+</title>
+
+</head>
+
+<body>
+
+  <button class = "firstButton" onclick = "displayAnnouncement('heads')">heads</button>
+  <button class = "secondButton" onclick = "displayAnnouncement('tails')">tails</button>
+
+  <br>
+
+  <input class = "nameInput" placeholder = "Enter your text here" onkeyup = "displayAnnouncement()">
+  <button class = "submitButton" onclick = "displayAnnouncement()">Submit</button>
+
+  <p class = "announcement"></p>
+  <br>
+
+
+
+  
+
+ 
+
+
+
+
+  <script>
+    const announcement = document.body.querySelector('.announcement');
+    const nameInput = document.body.querySelector('.nameInput');
+
+    function displayAnnouncement() {
+      const name = nameInput.value;
+      announcement.innerHTML = `${name}`;
+    }
+
+    // nameInput.addEventListener("input", displayAnnouncement);
+
+    // function checkKeyDown(event) {
+    //   if (event.key === "Enter") {
+    //     displayAnnouncement();
+    //   }
+    // }
+
+
+    
+
+  </script>
+</body>
+</html>
