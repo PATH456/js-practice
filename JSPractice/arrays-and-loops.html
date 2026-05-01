@@ -3,19 +3,63 @@
   <head>
 
     <title>Arrays and Loops</title>
+    <link rel="stylesheet" href="todo-list.css">
+
 
   </head>
 
   <body>
 
+    <p>Todo list</p>
+
+    <div class = "container">
+      <div class = "todo-row">
+        <input class = "task" placeholder = "Todo name">
+        <input class = "date" type = "date">
+        <button class = "addTask">Add</button>
+      </div>
+
+      <div class = "toDoListHTML"></div>
+
+
+    </div>
+    
+    
+
     <script>
-      const myArray = [10, 20, 30];
-      for (let i = 0; i < myArray.length; i++) {
-        console.log(myArray[i]);
+      const arrayTask = [];
+      const task = document.body.querySelector('.task');
+      const date = document.body.querySelector('.date');
+      const addTask = document.body.querySelector('.addTask');
+      const display = document.body.querySelector('.toDoListHTML');
+
+      function addTodo() {
+        const taskObject = {
+          name: task.value,
+          date: date.value
+        }
+        arrayTask.push(taskObject);
       }
-      myArray.push(100);
-      myArray.splice(0, 2);
-      console.log(myArray);
+
+      function renderHTML() {
+        display.innerHTML = ""
+        for (let i = 0; i< arrayTask.length;i++) {
+           const html = `
+        <div class = 'todo-row'>
+          <div>${arrayTask[i].name}</div> 
+          <div>${arrayTask[i].date}</div> 
+          <button class = "delButton" onclick = "
+          arrayTask.splice(${i},1)
+          renderHTML()
+          ">Delete</button>
+        </div>
+        `;
+        display.innerHTML += html;
+        }
+      }
+
+      addTask.addEventListener("click", addTodo);
+      addTask.addEventListener("click", renderHTML);
 
     </script>
   

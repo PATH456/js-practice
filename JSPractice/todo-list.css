@@ -1,20 +1,14 @@
-
-.task-display {
-  padding: 20px 0px;
+.container {
+  display: grid;
 }
 
-.todo-item {
-  display: flex;
-  align-items: center;
-  max-width: 405px;
-  padding: 20px 0px;
-  gap: 50px;
+.todo-row {
+  display: grid;
+  grid-template-columns: 220px 160px 80px;
+  gap: 20px;
+  margin-bottom: 20px;  
 }
 
-.delete-button{
-  width: 91px;
+.task, .date, .addTask, .delButton {
+  padding: 8px;
 }
-
-.text{
-  flex: 1;
-} 
