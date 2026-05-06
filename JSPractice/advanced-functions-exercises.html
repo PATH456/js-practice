@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>
+      Advanced functions exercises
+    </title>
+  </head>
+
+  <body>
+
+    <button class = "firstButton">Start</button>
+
+    <button class = "addCartButton">Add to cart</button>
+
+    <p class = "message"></p>
+
+    <script>
+      const add = function() {
+        console.log(2+3);
+
+      }
+
+      function runTwice(parameter) {
+        parameter();
+        parameter();
+      }
+
+      runTwice(function() {
+        console.log('Hello');
+      })
+
+      const firstButton = document.body.querySelector('.firstButton');
+      const addCartButton = document.body.querySelector('.addCartButton');
+      const displayMessage = document.body.querySelector('.message');
+
+      function changeText() {
+          firstButton.innerText = "Finished!";
+      }
+
+      function loadingText() {
+        firstButton.innerText = "Loading..."
+      }
+      
+
+      firstButton.addEventListener("click", function() {
+        setTimeout(changeText, 3000);
+        loadingText();
+
+      });
+      let timer = null;
+
+      addCartButton.addEventListener("click", function() {
+        if (timer) {
+          clearTimeout(timer);
+        }
+        displayMessage.innerHTML = "Added!";
+        timer = setTimeout(function() {
+          displayMessage.innerHTML = "";
+        }, 2000);
+      })
+
+
+
+      
+   
+    
+
+      
+
+
+
+
+    </script>
+  </body>
+
+</html>
