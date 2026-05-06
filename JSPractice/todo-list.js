@@ -12,7 +12,7 @@ let toDoArray = [];
         } else {
           alert("You must select a task and a due date!");
         }
-        taskInput.value = "";
+  
         renderTask();
         
       }
@@ -26,16 +26,16 @@ let toDoArray = [];
       function renderTask() {
         let toDoList = document.querySelector('.task-display');
         toDoList.innerHTML = "";
-        for (let i = 0; i < toDoArray.length; i++) {
+        toDoArray.forEach(function(value, index) {
           toDoList.innerHTML += `
           <div class = "todo-item">
-            <span class = "text">${toDoArray[i].name}</span> 
-            <span class = "date">${toDoArray[i].dueDate}</span>
+            <span class = "text">${value.name}</span> 
+            <span class = "date">${value.dueDate}</span>
             <button class = "delete-button" 
-            onclick = "toDoArray.splice(${i}, 1); renderTask()"
-            >Delete</button> 
+            onclick = "toDoArray.splice(${index}, 1); renderTask()"
+            >Delete</button>
           </div>`;
-        }
+        });
       }
 
   

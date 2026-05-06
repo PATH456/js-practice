@@ -1,0 +1,82 @@
+!<!DOCTYPE html>
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+  <script>
+    function addArray(array1, array2) {
+      const newArray = [];
+      let i = 0;
+      if (array1.length < array2.length) {
+        while (i < array1.length) {
+          newArray[i] = array1[i] + array2[i];
+          i++;
+        }
+        while(i < array2.length) {
+          newArray[i] = array2[i];
+        }
+      } else {
+        while (i < array2.length) {
+          newArray[i] = array1[i] + array2[i];
+          i++;
+        }
+        while(i < array1.length) {
+          newArray[i] = array1[i];
+        }
+      } 
+      return newArray;
+    }
+    console.log(addArray([10,20,30], []));
+
+    function minMax(nums) {
+      if (nums.length === 0) {
+        const resObject = {
+          min: null,
+          max: null
+        }
+        return resObject;
+      }
+      const resObject = {
+        min: nums[0], 
+        max: nums[0]
+      }
+      if (nums.length === 1) {
+        return resObject;
+      }
+      for (let i = 1; i < nums.length; i++) {
+        if (nums[i] < resObject.min) {
+          resObject.min = num[i];
+        } else if (nums[i] > resObject.max) {
+          resObject.max = num[i];
+        }
+      }
+      return resObject;
+    }
+
+    function countWords(words) {
+      const object = {
+
+      }
+
+    for (let i = 0; i < words.length; i++) {
+      if (Object.hasOwn(object, words[i])) {
+        object[words[i]]++;
+      } else {
+        object[words[i]] = 1;
+      }
+    }
+    return object;
+  }
+
+  console.log(countWords(["apple", "banana", "apple"]));
+  
+    
+  </script>
+
+</body>
+</html>
