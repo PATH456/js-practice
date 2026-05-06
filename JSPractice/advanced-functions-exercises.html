@@ -3,64 +3,28 @@
 <html>
   <head>
     <title>
-      Advanced functions exercises
+      App
     </title>
   </head>
 
   <body>
 
-    <button class = "firstButton">Start</button>
+    <button class = "addMessage" onclick = "message++">Add</button>
+    <button class = "removeMessage" onclick = "message--">Remove</button>
 
-    <button class = "addCartButton">Add to cart</button>
-
-    <p class = "message"></p>
+    
 
     <script>
-      const add = function() {
-        console.log(2+3);
-
-      }
-
-      function runTwice(parameter) {
-        parameter();
-        parameter();
-      }
-
-      runTwice(function() {
-        console.log('Hello');
-      })
-
-      const firstButton = document.body.querySelector('.firstButton');
-      const addCartButton = document.body.querySelector('.addCartButton');
-      const displayMessage = document.body.querySelector('.message');
-
-      function changeText() {
-          firstButton.innerText = "Finished!";
-      }
-
-      function loadingText() {
-        firstButton.innerText = "Loading..."
-      }
-      
-
-      firstButton.addEventListener("click", function() {
-        setTimeout(changeText, 3000);
-        loadingText();
-
-      });
-      let timer = null;
-
-      addCartButton.addEventListener("click", function() {
-        if (timer) {
-          clearTimeout(timer);
+      let message = 1;
+      function changeTitle() {
+        if ((document.title === "App") && (message > 0)) {
+          document.title = `(${message}) New Message`
+        } else {
+          document.title = "App";
         }
-        displayMessage.innerHTML = "Added!";
-        timer = setTimeout(function() {
-          displayMessage.innerHTML = "";
-        }, 2000);
-      })
+      }
 
-
+      setInterval(changeTitle, 1000);
 
       
    
