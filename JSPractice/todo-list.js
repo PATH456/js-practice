@@ -26,8 +26,8 @@ let toDoArray = [];
       function renderTask() {
         let toDoList = document.querySelector('.task-display');
         toDoList.innerHTML = "";
-        toDoArray.forEach(function(value, index) {
-          toDoList.innerHTML += `
+        toDoArray.forEach((value, index) => {
+          let html = `
           <div class = "todo-item">
             <span class = "text">${value.name}</span> 
             <span class = "date">${value.dueDate}</span>
@@ -35,6 +35,7 @@ let toDoArray = [];
             onclick = "toDoArray.splice(${index}, 1); renderTask()"
             >Delete</button>
           </div>`;
+          toDoList.innerHTML += html;
         });
       }
 
@@ -44,7 +45,7 @@ let toDoArray = [];
       resetButton.addEventListener("click", resetList);
 
       
-      taskInput.addEventListener("keydown", function(event) {
+      taskInput.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
           addTask();
         }
