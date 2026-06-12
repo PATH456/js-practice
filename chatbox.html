@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbox</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src = "https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
+    <script type="text/babel">
+      
+      function ChatInput({ setMessage, setInputText, inputText }) {
+        return (
+          <>
+            <input 
+            className = "chatInput" 
+            placeholder = "Send a message to the Chatbox" 
+            size = "30"
+            onChange={(event) => setInputText(event.target.value)}
+            />
+            <button onClick = {() => setMessage(inputText)}>Send</button>
+          </>
+        )
+      }
+
+      function UserMessage({ message }) {
+        return (
+          <>
+            <p>{message}</p>
+          </>
+        )
+      }
+      function BotMessage() {
+        return (
+          <>
+          <p>Hi. How can I help you?</p>
+          </>
+        )
+      }
+
+      function PageComponent() {
+        const [inputText, setInputText] = React.useState("");
+        const [message, setMessage] = React.useState("");
+        return (
+        <>
+        <ChatInput setMessage = {setMessage} inputText = {inputText} setInputText = {setInputText}/>
+        <UserMessage message = {message}/>
+        {message && <BotMessage/>}
+        </>
+      )}
+
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container);
+      root.render(<PageComponent/>);
+      
+    
+    </script>
+
+  </body>
+</html>
