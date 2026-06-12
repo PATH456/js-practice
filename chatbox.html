@@ -12,50 +12,37 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script src = "https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
     <script type="text/babel">
-      
-      function ChatInput({ setMessage, setInputText, inputText }) {
+
+      function App() {
         return (
           <>
-            <input 
-            className = "chatInput" 
-            placeholder = "Send a message to the Chatbox" 
-            size = "30"
-            onChange={(event) => setInputText(event.target.value)}
-            />
-            <button onClick = {() => setMessage(inputText)}>Send</button>
+          <ProductCard name = "Cotton socks" price = "10.90"/>
+          <ProductCard name = "Tennis balls" price = "6.00" discountPrice = "4.95"/>
+          <ProductCard name = "Plain T-shirt" price = "7.99"/>
           </>
         )
       }
 
-      function UserMessage({ message }) {
-        return (
-          <>
-            <p>{message}</p>
-          </>
-        )
-      }
-      function BotMessage() {
-        return (
-          <>
-          <p>Hi. How can I help you?</p>
-          </>
-        )
-      }
-
-      function PageComponent() {
-        const [inputText, setInputText] = React.useState("");
-        const [message, setMessage] = React.useState("");
+      function ProductCard({name, price, discountPrice}) {
         return (
         <>
-        <ChatInput setMessage = {setMessage} inputText = {inputText} setInputText = {setInputText}/>
-        <UserMessage message = {message}/>
-        {message && <BotMessage/>}
+          <p>{name}</p>
+          {!discountPrice && <p>Price: ${price} </p>}
+          {discountPrice && (
+            <>
+            <del>Price: ${price}</del>
+            <p>Discount Price: ${discountPrice} </p>
+            </>
+          )}
+          <button>Add to cart</button>
         </>
       )}
 
+     
+
       const container = document.querySelector('.js-container');
       const root = ReactDOM.createRoot(container);
-      root.render(<PageComponent/>);
+      root.render(<App/>);
       
     
     </script>
