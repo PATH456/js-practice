@@ -14,32 +14,27 @@
     <script type="text/babel">
 
       function App() {
-        return (
-          <>
-          <ProductCard name = "Cotton socks" price = "10.90"/>
-          <ProductCard name = "Tennis balls" price = "6.00" discountPrice = "4.95"/>
-          <ProductCard name = "Plain T-shirt" price = "7.99"/>
-          </>
-        )
+        const [textInput, setTextInput] = React.useState("");
+      return (
+        <>
+        <input 
+        placeholder = "Type your text here"
+        onChange = {(event) => setTextInput(event.target.value)}
+        value = {textInput}
+        />
+        <p>Hello {textInput}</p>
+        <div>
+        <button onClick = {() => setTextInput("")}>Reset</button>
+        <button onClick = {() => setTextInput("Henry")}>Example</button>
+        </div>
+      
+        </>
+      )
+      
       }
 
-      function ProductCard({name, price, discountPrice}) {
-        return (
-        <>
-          <p>{name}</p>
-          {!discountPrice && <p>Price: ${price} </p>}
-          {discountPrice && (
-            <>
-            <del>Price: ${price}</del>
-            <p>Discount Price: ${discountPrice} </p>
-            </>
-          )}
-          <button>Add to cart</button>
-        </>
-      )}
 
-     
-
+    
       const container = document.querySelector('.js-container');
       const root = ReactDOM.createRoot(container);
       root.render(<App/>);
